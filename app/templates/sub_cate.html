@@ -1,0 +1,50 @@
+{%extends "base.html"%}
+
+{%block content%}
+<div id="search-bar">
+    <a href="{{url_for('index')}}"><img src="/static/tiki.PNG" alt=""></a>
+    <img src="/static/tikinow.png" alt="">
+    <form action=" {{ url_for('product_search', names=names) }}" class="form">
+      <input type="text" name="search" size="100" placeholder="Tìm sản phẩm, danh mục hay thương hiệu mong muốn">
+      <input class="button" value="Search" type="submit">
+    </form> 
+  </div>
+  
+<div id="product-dropdown">
+  <a href="" class="menu"><i class="fas fa-bars"></i> DANH MỤC SẢN PHẨM</a>
+  <div id="dropdown-content">
+    {% for name in sub_categories%}
+      {%if 'Voucher' in categories%}
+      <a  href="{{ url_for('product', names=name[0]) }}">{{name[0]}}</a>
+      {%else%}
+      <a  href="{{ url_for('product', names=name[0]) }}">{{name[0]}}</a>
+      <hr>
+      {%endif%}
+    {%endfor%}
+  </div>
+</div>
+</header>  
+
+<section id="category">
+  {% for item in sub_categories%}
+  <div class="card border-info mb-3" style="width: 22rem;">  
+    <div class="card-body">
+      <h5 class="card-title">{{item[0]}}</h5>
+      <a href="{{ url_for('product', names=item[0]) }}" class="btn btn-primary">See More</a>
+    </div>
+  </div>
+  {%endfor%}
+  </section>
+
+<!-- <section id="products" style="display: none">
+{% for name in sub_categories%}
+<div class="card border-light md-3" id='item' style="width: 22rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{name[0]}}</h5>
+    <a href="{{ url_for('product', names=name[0]) }}" class="btn btn-primary">See More</a>
+  </div>
+</div>
+{%endfor%}
+</section> -->
+
+{%endblock%}

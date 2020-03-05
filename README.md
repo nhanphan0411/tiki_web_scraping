@@ -10,7 +10,7 @@ The project successfully scraped 100,000 products accross all the categories.
 
 ***Data Scraping***
 
-CODE CAN BE REFERED IN ```main_nb.py```
+CODE CAN BE REFERED IN ```main_nb.ipynb```
 
 *1. Scraping Categories:* 
 * Create "Categories" database using PostgreSQL.
